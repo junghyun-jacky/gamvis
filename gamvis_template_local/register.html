@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- 210823 추가, for google login) content에 자신의 OAuth2.0 클라이언트ID를 넣습니다. -->
+    <meta name="google-signin-client_id" content="482993167439-3sj6vkqrv5l1r5q4nj3gkp15r3gemd0l.apps.googleusercontent.com">
+
+
+    <title>GAMVIS - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!--210816추가 참고: https://huskdoll.tistory.com/104-->
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+
+                            <!--210816 추가 참고: https://huskdoll.tistory.com/104-->
+                            <!--210823 모달창 추가(기본: 위 링크, 보완: sb admin2템플릿 내 다른 html Modal 참고-->
+                            <div class="modal fade" id="defaultModal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="modal-contents"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+                            <!--// 모달창 -->
+                            <form class="user" role="form" method="post" action="javascript:alert( 'success!' );">
+                                <div class="form-group">
+                                    <label for="provision" class="col-lg-2 control-label">회원가입약관</label>
+                                    <div class="col-lg-10" id="provision">
+                                        <textarea class="form-control" rows="8" style="resize:none">
+                                        약관동의
+                                        야놀자서비스 이용약관 쓸까..?
+http://m.policy.yanolja.com/pf/policy/service?t=service&d=m
+                                        - 여가 관련
+                                        </textarea>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" id="provisionYn" name="provisionYn" value="Y" autofocus="autofocus" checked>
+                                                동의합니다.
+                                            </label>
+                                            <label>
+                                                <input type="radio" id="provisionYn" name="provisionYn" value="N">
+                                                동의하지 않습니다.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberInfo" class="col-lg-2 control-label">개인정보취급방침</label>
+                                    <div class="col-lg-10" id="memberInfo">
+                                        <textarea class="form-control" rows="8" style="resize:none">개인정보의 항목 및 수집방법
+                                         https://www.privacy.go.kr/gud/pis/perRule.do
+                                         - 검색했을 때 나오는 방침.
+                                        </textarea>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" id="memberInfoYn" name="memberInfoYn" value="Y" checked>
+                                                동의합니다.
+                                            </label>
+                                            <label>
+                                                <input type="radio" id="memberInfoYn" name="memberInfoYn" value="N">
+                                                동의하지 않습니다.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleID"
+                                               placeholder="ID">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleName"
+                                               placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                           placeholder="Email Address">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="exampleInputPassword" placeholder="Password">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="exampleRepeatPassword" placeholder="Repeat Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPhoneNumber" class="col-lg-2 control-label">Gender</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control" id="gender">
+                                            <option value="F">Female</option>
+                                            <option value="M">Male</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPhoneNumber" class="col-lg-2 control-label">Country</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control" id="gender">
+                                            <option value="F">Female</option>
+                                            <option value="M">Male</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPhoneNumber" class="col-lg-2 control-label">Favorites</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control" id="favorites">
+                                            <option value="sleeping">수면</option>
+                                            <option value="watching">시청</option>
+                                            <option value="talking">사교활동</option>
+                                            <option value="reading">독서</option>
+                                            <option value="activities">야외활동</option>
+                                            <option value="games">게임</option>
+                                            <option value="cooking">요리</option>
+                                            <option value="etc">기타</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </button> <!-- <a>=><button>으로 바꾸고 class 그대로 유지할 경우, a태그와 동일한 모양-->
+                                <hr>
+                                <a id="GgCustomLogin" href="javascript:void(0)" class="btn btn-google btn-user btn-block">
+                                    <!--210823 수정, for google login) 톰캣 8.5.70설치 후, C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\ROOT에 register.html옮긴 후, -->
+                                    <!--http://localhost:8080/register.html 에 접속하여 구글 로그인 버튼 누르면 회원 가입 가능한 화면 뜸-->
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--210816추가 참고: https://huskdoll.tistory.com/104 -->
+    <script>
+
+        $(function () {
+            //모달(팝업과 유사, 페이지 내에서 레이어를 이용해 정보 보여줌)을 전역변수로 선언
+            var modalContents = $(".modal-contents");
+            var modal = $("#defaultModal");
+
+            $('.onlyAlphabetAndNumber').keyup(function (event) {
+                if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
+                    var inputVal = $(this).val();
+                    $(this).val($(this).val().replace(/[^_a-z0-9]/gi, '')); //_(underscore), 영어, 숫자만 가능
+                }
+            });
+
+            $(".onlyHangul").keyup(function (event) {
+                if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
+                    var inputVal = $(this).val();
+                    $(this).val(inputVal.replace(/[a-z0-9]/gi, ''));
+                }
+            });
+
+            $(".onlyNumber").keyup(function (event) {
+                if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
+                    var inputVal = $(this).val();
+                    $(this).val(inputVal.replace(/[^0-9]/gi, ''));
+                }
+            });
+
+            //------- 검사하여 상태를 class에 적용
+            $('#id').keyup(function (event) {
+
+                var divId = $('#divId');
+
+                if ($('#id').val() == "") {
+                    divId.removeClass("has-success");
+                    divId.addClass("has-error");
+                } else {
+                    divId.removeClass("has-error");
+                    divId.addClass("has-success");
+                }
+            });
+
+            $('#password').keyup(function (event) {
+
+                var divPassword = $('#divPassword');
+
+                if ($('#password').val() == "") {
+                    divPassword.removeClass("has-success");
+                    divPassword.addClass("has-error");
+                } else {
+                    divPassword.removeClass("has-error");
+                    divPassword.addClass("has-success");
+                }
+            });
+
+            $('#passwordCheck').keyup(function (event) {
+
+                var passwordCheck = $('#passwordCheck').val();
+                var password = $('#password').val();
+                var divPasswordCheck = $('#divPasswordCheck');
+
+                if ((passwordCheck == "") || (password != passwordCheck)) {
+                    divPasswordCheck.removeClass("has-success");
+                    divPasswordCheck.addClass("has-error");
+                } else {
+                    divPasswordCheck.removeClass("has-error");
+                    divPasswordCheck.addClass("has-success");
+                }
+            });
+
+            $('#name').keyup(function (event) {
+
+                var divName = $('#divName');
+
+                if ($.trim($('#name').val()) == "") {
+                    divName.removeClass("has-success");
+                    divName.addClass("has-error");
+                } else {
+                    divName.removeClass("has-error");
+                    divName.addClass("has-success");
+                }
+            });
+
+            $('#nickname').keyup(function (event) {
+
+                var divNickname = $('#divNickname');
+
+                if ($.trim($('#nickname').val()) == "") {
+                    divNickname.removeClass("has-success");
+                    divNickname.addClass("has-error");
+                } else {
+                    divNickname.removeClass("has-error");
+                    divNickname.addClass("has-success");
+                }
+            });
+
+            $('#email').keyup(function (event) {
+
+                var divEmail = $('#divEmail');
+
+                if ($.trim($('#email').val()) == "") {
+                    divEmail.removeClass("has-success");
+                    divEmail.addClass("has-error");
+                } else {
+                    divEmail.removeClass("has-error");
+                    divEmail.addClass("has-success");
+                }
+            });
+
+            $('#phoneNumber').keyup(function (event) {
+
+                var divPhoneNumber = $('#divPhoneNumber');
+
+                if ($.trim($('#phoneNumber').val()) == "") {
+                    divPhoneNumber.removeClass("has-success");
+                    divPhoneNumber.addClass("has-error");
+                } else {
+                    divPhoneNumber.removeClass("has-error");
+                    divPhoneNumber.addClass("has-success");
+                }
+            });
+
+
+            //------- validation 검사
+            $("form").submit(function (event) {
+
+                var provision = $('#provision');
+                var memberInfo = $('#memberInfo');
+                var divId = $('#divId');
+                var divPassword = $('#divPassword');
+                var divPasswordCheck = $('#divPasswordCheck');
+                var divName = $('#divName');
+                var divNickname = $('#divNickname');
+                var divEmail = $('#divEmail');
+                var divPhoneNumber = $('#divPhoneNumber');
+
+                //회원가입약관
+                if ($('#provisionYn:checked').val() == "N") {
+                    modalContents.text("회원가입약관에 동의하여 주시기 바랍니다."); //모달 메시지 입력
+                    modal.modal('show'); //모달 띄우기
+
+                    provision.removeClass("has-success");
+                    provision.addClass("has-error");
+                    $('#provisionYn').focus();
+                    return false;
+                } else {
+                    provision.removeClass("has-error");
+                    provision.addClass("has-success");
+                }
+
+                //개인정보취급방침
+                if ($('#memberInfoYn:checked').val() == "N") {
+                    modalContents.text("개인정보취급방침에 동의하여 주시기 바랍니다.");
+                    modal.modal('show');
+
+                    memberInfo.removeClass("has-success");
+                    memberInfo.addClass("has-error");
+                    $('#memberInfoYn').focus();
+                    return false;
+                } else {
+                    memberInfo.removeClass("has-error");
+                    memberInfo.addClass("has-success");
+                }
+
+                //아이디 검사
+                if ($('#id').val() == "") {
+                    modalContents.text("아이디를 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+
+                    divId.removeClass("has-success");
+                    divId.addClass("has-error");
+                    $('#id').focus();
+                    return false;
+                } else {
+                    divId.removeClass("has-error");
+                    divId.addClass("has-success");
+                }
+
+                //패스워드 검사
+                if ($('#password').val() == "") {
+                    modalContents.text("패스워드를 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+
+                    divPassword.removeClass("has-success");
+                    divPassword.addClass("has-error");
+                    $('#password').focus();
+                    return false;
+                } else {
+                    divPassword.removeClass("has-error");
+                    divPassword.addClass("has-success");
+                }
+
+                //패스워드 확인
+                if ($('#passwordCheck').val() == "") {
+                    modalContents.text("패스워드 확인을 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+
+                    divPasswordCheck.removeClass("has-success");
+                    divPasswordCheck.addClass("has-error");
+                    $('#passwordCheck').focus();
+                    return false;
+                } else {
+                    divPasswordCheck.removeClass("has-error");
+                    divPasswordCheck.addClass("has-success");
+                }
+
+                //패스워드 비교
+                if ($('#password').val() != $('#passwordCheck').val() || $('#passwordCheck').val() == "") {
+                    modalContents.text("패스워드가 일치하지 않습니다.");
+                    modal.modal('show');
+
+                    divPasswordCheck.removeClass("has-success");
+                    divPasswordCheck.addClass("has-error");
+                    $('#passwordCheck').focus();
+                    return false;
+                } else {
+                    divPasswordCheck.removeClass("has-error");
+                    divPasswordCheck.addClass("has-success");
+                }
+
+                //이름
+                if ($('#name').val() == "") {
+                    modalContents.text("이름을 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+
+                    divName.removeClass("has-success");
+                    divName.addClass("has-error");
+                    $('#name').focus();
+                    return false;
+                } else {
+                    divName.removeClass("has-error");
+                    divName.addClass("has-success");
+                }
+
+                //이메일
+                if ($('#email').val() == "") {
+                    modalContents.text("이메일을 입력하여 주시기 바랍니다.");
+                    modal.modal('show');
+
+                    divEmail.removeClass("has-success");
+                    divEmail.addClass("has-error");
+                    $('#email').focus();
+                    return false;
+                } else {
+                    divEmail.removeClass("has-error");
+                    divEmail.addClass("has-success");
+                }
+
+            });
+
+        });
+
+    </script>
+
+    <!--210823 추가, for google login 참고: https://tyrannocoding.tistory.com/51 -->
+    <script>
+        //처음 실행하는 함수
+        function init() {
+            gapi.load('auth2', function () {
+                gapi.auth2.init();
+                options = new gapi.auth2.SigninOptionsBuilder();
+                options.setPrompt('select_account');
+                // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+                options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+                // 인스턴스의 함수 호출 - element에 로그인 기능 추가
+                // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
+                gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+            })
+        }
+
+        function onSignIn(googleUser) {
+            var access_token = googleUser.getAuthResponse().access_token
+            $.ajax({
+                // people api를 이용하여 프로필 및 생년월일에 대한 선택동의후 가져온다.
+                url: 'https://people.googleapis.com/v1/people/me'
+                // key에 자신의 API 키를 넣습니다.
+                , data: { personFields: 'birthdays', key: 'AIzaSyBzOlNX3I3S-OwC6wl_geV6mMKbS_d6e7c', 'access_token': access_token }
+                , method: 'GET'
+            })
+                .done(function (e) {
+                    //프로필을 가져온다.
+                    var profile = googleUser.getBasicProfile();
+                    console.log(profile)
+                })
+                .fail(function (e) {
+                    console.log(e);
+                })
+        }
+        function onSignInFailure(t) {
+            console.log(t);
+        }
+    </script>
+    <!--210823 추가, for google login) 구글 api 사용을 위한 스크립트-->
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
