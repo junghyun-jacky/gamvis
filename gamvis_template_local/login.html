@@ -8,14 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- 210824 추가, for google login) content에 자신의 OAuth2.0 클라이언트ID를 넣습니다. -->
+    <meta name="google-signin-client_id" content="482993167439-3sj6vkqrv5l1r5q4nj3gkp15r3gemd0l.apps.googleusercontent.com">
 
     <title>GAMVIS - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -45,11 +46,11 @@
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                    id="exampleInputEmail" aria-describedby="emailHelp"
-                                                   placeholder="ID">
+                                                   placeholder="ID" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                   id="exampleInputPassword" placeholder="Password">
+                                                   id="exampleInputPassword" placeholder="Password" required>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -62,9 +63,9 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                                <button type="submit" class="btn btn-primary btn-user btn-block">
                                                     Login
-                                                </a>
+                                                </button> <!-- <a>=><button>으로 바꾸고 class 그대로 유지할 경우, a태그와 동일한 모양-->
                                             </div>
                                             <div class="col-sm-6">
                                                 <a href="register.html" class="btn btn-primary btn-user btn-block">
@@ -73,7 +74,9 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <a id="GgCustomLogin" href="javascript:void(0)" class="btn btn-google btn-user btn-block">
+                                            <!--210824 수정, for google login) 톰캣 8.5.70설치 후, C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\ROOT에 login.html옮긴 후, -->
+                                            <!--http://localhost:8080/login.html 에 접속하여 구글 로그인 버튼 누르면 회원 가입 가능한 화면 뜸-->
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
@@ -95,6 +98,46 @@
         </div>
 
     </div>
+    <!--210824 추가, for google login 참고: https://tyrannocoding.tistory.com/51 -->
+    <script>
+        //처음 실행하는 함수
+        function init() {
+            gapi.load('auth2', function () {
+                gapi.auth2.init();
+                options = new gapi.auth2.SigninOptionsBuilder();
+                options.setPrompt('select_account');
+                // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+                options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+                // 인스턴스의 함수 호출 - element에 로그인 기능 추가
+                // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
+                gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+            })
+        }
+
+        function onSignIn(googleUser) {
+            var access_token = googleUser.getAuthResponse().access_token
+            $.ajax({
+                // people api를 이용하여 프로필 및 생년월일에 대한 선택동의후 가져온다.
+                url: 'https://people.googleapis.com/v1/people/me'
+                // key에 자신의 API 키를 넣습니다.
+                , data: { personFields: 'birthdays', key: 'AIzaSyBzOlNX3I3S-OwC6wl_geV6mMKbS_d6e7c', 'access_token': access_token }
+                , method: 'GET'
+            })
+                .done(function (e) {
+                    //프로필을 가져온다.
+                    var profile = googleUser.getBasicProfile();
+                    console.log(profile)
+                })
+                .fail(function (e) {
+                    console.log(e);
+                })
+        }
+        function onSignInFailure(t) {
+            console.log(t);
+        }
+    </script>
+    <!--210824 추가, for google login) 구글 api 사용을 위한 스크립트-->
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
