@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\gamvis_template_local"
+    "\\gamvis_template_local",
+    "\\gamvis_template_local\\vendor",
+    "\\gamvis_template_local\\vendor\\jquery"
   ],
-  "SelectedNode": "\\gamvis_template_local\\회원가입폼예시.html",
+  "SelectedNode": "\\gamvis_template_local\\LICENSE",
   "PreviewInSolutionExplorer": false
 }
