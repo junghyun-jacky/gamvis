@@ -494,11 +494,16 @@
                             <!-- 첫번째 행 -->
                             <div class="row">
                                 <!-- 첫번째 행-1, 버튼 멀쩡, 첫행-2와 같은 행O, 페이지 이탈) 잠든 시각 표시 -->
-                                <div class="card shadow mb-4">
+                                <div class="mb-4 mx-4 ">
                                     <div class="input-group">
                                         <div class="card py-3 border-left-primary">
-                                            <div class="card-body">
-                                                어제 <span name="sleepHour">10</span>시에 잠드셨습니까?
+                                            <div class="card-body ">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        어제 <span name="sleepHour">10</span>시에 잠드셨습니까?
+                                                    </div>
+
+                                                </div>
                                             </div>
 
                                         </div>
@@ -513,32 +518,9 @@
                                     </div>
                                 </div>
 
-                                <!-- 첫번째 행-1, 버튼 이상, 첫행-2와 같은 행O) 잠든 시각 표시 -->
-
-                                <div class="col-xs-6 col-sm-3">
-                                    <div class="card shadow mb-4">
-                                        <div class="input-group">
-                                            <div class="card py-3 border-left-primary">
-                                                <div class="card-body">
-                                                    어제 <span name="sleepHour">10</span>시에 잠드셨습니까?
-                                                </div>
-
-                                            </div>
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button">
-                                                    Y
-                                                </button>
-                                                <button class="btn btn-primary" type="button">
-                                                    N
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <!-- 첫번째 행-2) D-day 표시 -->
-                                <div class="col-xs-6 col-sm-3">
-                                    <div class="card py-3 border-left-secondary shadow mb-4">
+                                <div class="mb-4 mx-4">
+                                    <div class="card py-3 border-left-secondary shadow">
                                         <div class="card-body">
                                             D-Day
                                         </div>
@@ -551,7 +533,7 @@
                                 <!-- 두번째 행 -->
                                 <div class="row">
                                     <!-- 두번째 행-1) 수면 데이터 시각화 -->
-                                    <div class="col-xs-6 col-sm-3">
+                                    <div class="mb-4 mx-4">
                                         <div class="card py-3 border-left-secondary shadow">
                                             <div class="card-body">
                                                 수면 데이터 시각화
@@ -560,7 +542,7 @@
                                     </div>
 
                                     <!-- 두번째 행-2) 운동 데이터 시각화 -->
-                                    <div class="col-xs-6 col-sm-3">
+                                    <div class="mb-4 mx-4">
                                         <div class="card py-3 border-left-secondary shadow">
                                             <div class="card-body">
                                                 운동 데이터 시각화
@@ -569,7 +551,7 @@
                                     </div>
 
                                     <!-- 두번째 행-3) 날씨 -->
-                                    <div class="col-xs-6 col-sm-3">
+                                    <div class="mb-4 mx-4">
                                         <div class="card py-3 border-left-secondary shadow">
                                             <div class="card-body">
                                                 날씨
@@ -577,7 +559,7 @@
                                         </div>
                                     </div>
                                     <!-- 두번째 행-4) 코로나 확진자 수 -->
-                                    <div class="col-xs-6 col-sm-3">
+                                    <div class="mb-4 mx-4">
                                         <div class="card py-3 border-left-secondary shadow">
                                             <div class="card-body">
                                                 코로나 확진자 수
