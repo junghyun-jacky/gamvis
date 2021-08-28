@@ -494,7 +494,7 @@
                             <!-- 첫번째 행 -->
                             <div class="row">
                                 <!-- 첫번째 행-1, 버튼 멀쩡, 첫행-2와 같은 행O, 페이지 이탈) 잠든 시각 표시 -->
-                                <div class="mb-4 mx-4 ">
+                                <div class="mb-4 mx-4">
                                     <div class="input-group">
                                         <div class="card py-3 border-left-primary">
                                             <div class="card-body ">
@@ -511,7 +511,8 @@
                                             <button class="btn btn-primary" type="button">
                                                 Y
                                             </button>
-                                            <button class="btn btn-primary" type="button">
+                                            
+                                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#sleepNoModal">
                                                 N
                                             </button>
                                         </div>
@@ -873,6 +874,38 @@
             </div>
         </div>
     </div>
+
+    <!--210828 추가) 수면시각 N버튼 클릭시 뜨는 Modal, 참고: https://blog.naver.com/PostView.nhn?blogId=ka28&logNo=222104309140 -->
+    <div class="modal fade" id="sleepNoModal" role="dialog">
+        <div class="modal-dialog">
+
+        <!-- Modal content-->   
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">
+                    어제 잠든 시간을 입력해 주세요.
+                </h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control bg-light py-3" placeholder="0~23시로 입력해주세요.">
+                
+            </div>
+            <div class="modal-footer">
+                    <a class="btn btn-info" href=".">
+                        확인
+                    </a>
+                </div>
+        </div>
+    </div>
+</div>
+    
+    <!--210828 추가) 수면시각 N버튼 클릭 제어용 추가 script, 참고: https://stackoverflow.com/questions/17142790/bootstrap-modal-not-working-at-all -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
