@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>모달창띄우기예시</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+
+    <style>
+        .modal-title {
+            font-size: 17px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .modal_table {
+            width: 100%;
+        }
+
+        #modal_userImg {
+            width: 50px;
+            height: 50px;
+            border-radius: 75%;
+        }
+
+        #modal_userId {
+            width: 200px;
+        }
+
+        #modal_userFollow {
+            margin: 10px;
+            text-align: right;
+        }
+    </style>
+
+</head>
+
+<body>
+    <a class="follower" data-toggle="modal" data-target="#followModal">
+        눌러봐라
+    </a>
+
+    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+        Logout
+    </a>
+
+    <!------------- Modal --------------->
+    <div class="modal fade" id="followModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">help..</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                </div>
+                <div class="modal-body">
+                    <table class="modal_table">
+                        <tr>
+                            <td style="width:70px;"><img id="modal_userImg" src="../image/myblog/safe.png"></td>
+                            <td id="modal_userID">USER_ID</td>
+                            <td id="modal_userFollow">
+                                <buttton class="btn btn-outline-primary">팔로우</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:70px;"><img id="modal_userImg" src="../image/myblog/cake.png"></td>
+                            <td id="modal_userID">USER_ID</td>
+                            <td id="modal_userFollow">
+                                <buttton class="btn btn-outline-primary">팔로우</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:70px;"><img id="modal_userImg" src="../image/myblog/paris.jpg"></td>
+                            <td id="modal_userID">USER_ID</td>
+                            <td id="modal_userFollow">
+                                <buttton class="btn btn-outline-primary">팔로우</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="count" value="1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /*팔로우 버튼 클릭*/
+        $('.follower').click(function(){
+            $('#followModal').modal();   //id가 "followModal"인 모달창을 열어준다. 
+            $('.modal-title').text("팔로우");    //modal 의 header 부분에 "팔로우"라는 값을 넣어준다. 
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
